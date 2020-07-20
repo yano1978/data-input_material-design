@@ -1,0 +1,129 @@
+@import url(//db.onlinewebfonts.com/c/0a086e32e41c5e5960b26626757f07f3?family=Apercu);
+@font-face {font-family: "Apercu"; src: url("//db.onlinewebfonts.com/t/0a086e32e41c5e5960b26626757f07f3.eot"); src: url("//db.onlinewebfonts.com/t/0a086e32e41c5e5960b26626757f07f3.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/0a086e32e41c5e5960b26626757f07f3.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/0a086e32e41c5e5960b26626757f07f3.woff") format("woff"), url("//db.onlinewebfonts.com/t/0a086e32e41c5e5960b26626757f07f3.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/0a086e32e41c5e5960b26626757f07f3.svg#Apercu") format("svg"); }
+
+html, body {
+    font-family: "Apercu";
+    color: #909090;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  body {
+    margin: 20px;
+  }
+  
+  h1 {
+    line-height: 1.2;
+    margin-bottom: 35px;
+    text-align: center;
+  }
+  
+  .container {
+    margin: 0 auto 35px;
+    max-width: 450px;
+  }
+  
+  /* Actual code example */
+  
+  //$primary-color: #b11adc;
+  $primary-color: #666;
+  $animation-duration: 0.4s;
+  
+  @mixin label-inactive() {
+    font-size: 1.2rem;
+    transform: translateY(0);
+  }
+  
+  @mixin label-active() {
+    font-size: 0.75rem;
+    transform: translateY(-14px);
+  }
+  
+  .form-field {
+    display: block;
+    margin-bottom: 16px;
+  }
+  .form-field__label {
+    @include label-active();
+    display: block;
+    font-weight: normal;
+    left: 0;
+    margin: 0;
+    padding: 18px 12px 0;
+    position: absolute;
+    top: 0;
+    transition: all $animation-duration;
+    width: 100%;
+  }
+  .form-field__control {
+    background: #f0eeed;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+  }
+  .form-field__bar {
+    //border-bottom: 2px solid $primary-color;
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    transform: scaleX(0);
+    transition: all $animation-duration;
+    width: 1%;
+  }
+  .form-field__input,
+  .form-field__textarea {
+    appearance: none;
+    background: transparent;
+    border: 0;
+    //border-bottom: 1px solid #999;
+    color: #333;
+    display: block;
+    font-size: 1.2rem;
+    margin-top: 24px;
+    outline: 0;
+    padding: 0 12px 10px 12px;
+    width: 100%;
+    
+    // IE 10-11
+    &:-ms-input-placeholder {
+      ~ .form-field__label {
+        @include label-inactive();
+      }
+    }
+    // All other browsers except Edge
+    &:placeholder-shown {
+      ~ .form-field__label {
+        @include label-inactive();
+      }
+    }
+    &:focus {
+      ~ .form-field__label {
+        color: $primary-color;
+        @include label-active();
+      }
+      ~ .form-field__bar {
+        //border-bottom: 2px solid $primary-color;
+        transform: scaleX(150);
+      }
+    }
+  }
+  .form-field__textarea {
+    height: 150px;
+  }
+
+  .search-icon {
+    position: absolute;
+    float: right;
+    top: 12px;
+    right: 0px;
+    font-size: 30px;
+    border: none;
+    color: #666;
+    outline: none;
+  }
+  
+  

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+        <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="bundle.css">
+        <link href="//db.onlinewebfonts.com/c/0a086e32e41c5e5960b26626757f07f3?family=Apercu" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="container">
+          <form novalidate>
+            <div class="row">
+                <div class="col-sm">
+                  <div class="form-field">
+                    <div class="form-field__control">
+                      <input id="search" type="text" class="form-field__input" maxlength="200" autocomplete="off" placeholder=" " onfocus="changePlaceholder()" onfocusout="restablishPlaceholder()"/>
+                      <button class="search-icon material-icons">search</button>
+                      <label id="searchLabel" for="search" class="form-field__label">Search artworks for people, places...</label>
+                      <div class="form-field__bar"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="row">
+              <div class="col-sm">
+                <div class="form-field">
+                  <div class="form-field__control">
+                    <input id="from" type="number" class="form-field__input" placeholder=" " min="0" max="-9999"/>
+                    <label for="from" class="form-field__label">Date from</label>
+                    <div class="form-field__bar"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div class="form-field">
+                  <div class="form-field__control">
+                    <input id="to" type="number" class="form-field__input" placeholder=" " min="0" max="9999"/>
+                    <label for="to" class="form-field__label">Date to</label>
+                    <div class="form-field__bar"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <script>
+        // "Search" input change placeholder
+        function changePlaceholder(){
+            document.getElementById('searchLabel').innerHTML = "Keyword";
+        }
+        function restablishPlaceholder(){
+            document.getElementById('searchLabel').innerHTML = "Search artworks for people, places...";
+        }
+        // "Date from" input Characters limit
+        document.getElementById('from').addEventListener('input', function () {
+            if (this.value.length > 5) {
+                this.value = this.value.slice(0,5); 
+            }
+            console.log('Date from: ' + this.value);
+        });
+        // "Date to" input characters limit
+        document.getElementById('to').addEventListener('input', function () {
+            if (this.value.length > 4) {
+                this.value = this.value.slice(0,4); 
+            }
+            console.log('Date to: ' +  this.value);
+        });
+        </script>
+    </body>
+</html>
