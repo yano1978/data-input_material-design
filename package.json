@@ -1,22 +1,32 @@
 {
-  "name": "textfield",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "dependencies": {},
+  "name": "data-input-material-design",
+  "version": "2.0.0",
+  "description": "A simple example form with material design with floating labels",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yano1978/data-input_material-design"
+  },
   "devDependencies": {
-    "css-loader": "^3.6.0",
+    "css-loader": "^6.7.2",
     "extract-loader": "^5.1.0",
-    "file-loader": "^6.0.0",
-    "sass": "^1.26.10",
-    "sass-loader": "^9.0.2",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "sass": "^1.56.1",
+    "sass-loader": "^13.2.0",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.0",
+    "webpack-dev-server": "^4.11.1"
   },
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "build": "webpack"
   },
-  "author": "",
+  "keywords": [
+    "html",
+    "scss",
+    "webpack"
+  ],
+  "author": "Ernesto Ianuario",
   "license": "ISC"
 }

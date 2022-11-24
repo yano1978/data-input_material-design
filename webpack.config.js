@@ -1,10 +1,17 @@
-module.exports = [{
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = [
+  {
+    entry: {
+      main: path.resolve(__dirname, './src/index.html'),
+    },
     entry: './app.scss',
     output: {
-      // This is necessary for webpack to compile
-      // But we never use style-bundle.js
-      filename: 'style-bundle.js',
+      path: path.resolve(__dirname, './dist'),
+      filename: '[name].bundle.js',
     },
+    mode: 'development',
     module: {
       rules: [
         {
@@ -23,13 +30,21 @@ module.exports = [{
               options: {
                 // Prefer Dart Sass
                 implementation: require('sass'),
-  
+
                 // See https://github.com/webpack-contrib/sass-loader/issues/804
                 webpackImporter: false,
               },
             },
-          ]
-        }
-      ]
+          ],
+        },
+      ],
     },
-  }];
+    plugins: [
+      new HtmlWebpackPlugin({
+        title: 'webpack data input',
+        template: path.resolve(__dirname, 'index.html'), // template file
+        filename: 'index.html', // output file
+      }),
+    ],
+  },
+];
